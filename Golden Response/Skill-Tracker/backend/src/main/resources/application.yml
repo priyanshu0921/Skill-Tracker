@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: new-skill-tracker-backend
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/SkillTrackerDB}
+    username:
+    password:
+    driver-class-name: ${SPRING_DATASOURCE_DRIVER_CLASS_NAME:org.postgresql.Driver}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: false
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: 8080
+
+app:
+  jwt:
+    secret: ${APP_JWT_SECRET:skill-tracker-secret-key-skill-tracker-secret-key-2026}
+    expiration-ms: ${APP_JWT_EXPIRATION_MS:86400000}
